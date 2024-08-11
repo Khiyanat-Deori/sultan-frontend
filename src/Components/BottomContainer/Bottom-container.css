@@ -1,0 +1,17 @@
+div.scroll-container {
+  background-color: #dddddd;
+  overflow: auto;
+  white-space: nowrap;
+  padding: 10px;
+}
+
+div.scroll-container img {
+  padding: 10px;
+}
+.photo-style {
+  width: 600px;
+  height: 400px;
+}
+div > h4 {
+  color: rgb(0, 0, 0);
+}

@@ -1,0 +1,126 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-top {
+  height: 300px;
+  background: #3e3e3e;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.footer-left {
+  width: 30vw;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.footer-right {
+  width: 30vw;
+  text-align: center;
+  color: white;
+}
+.footer2 {
+  background-color: #3e3e3e;
+  color: white;
+  text-align: center;
+  padding: 5px 0;
+}
+.line {
+  height: 0.5px;
+  background-color: rgb(83, 83, 83);
+}
+.bytesizedsolutions {
+  cursor: pointer;
+  color: #71aecf;
+  /* color: #ce4141; */
+}
+
+.quicklink-logo {
+  width: 25vw;
+  height: 50px;
+  background-image: url("../../assets/shlogo-white.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.quick-links {
+  display: none;
+}
+
+.quicklinks-items {
+  list-style: none;
+  text-decoration: none;
+  color: white;
+  margin-bottom: 8px;
+}
+.facebook {
+  display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .footer {
+    /* margin-top: 50px; */
+    display: flex;
+    height: 350px;
+    flex-direction: column;
+    border-top: 1px solid gray;
+
+    /* background-color: #e6eef2; */
+  }
+  .footer-top {
+    display: flex;
+    /* background-color: #e6eef2; */
+    background-color: hsl(200, 100%, 97%);
+    flex-direction: column;
+    padding-top: 15px;
+  }
+  .footer-left {
+    width: 100vw;
+  }
+
+  .quicklinks-items {
+    list-style: none;
+    text-decoration: none;
+    color: #595959;
+    margin-bottom: 8px;
+  }
+  .quicklink-logo {
+    /* width: 25vw; */
+    height: 40px;
+    background-image: url("../../assets/shlogo-blackk.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .facebook {
+    display: block;
+  }
+
+  .quick-links {
+    display: block;
+    color: #595959;
+  }
+
+  .footer-right {
+    /* border: 1px solid black; */
+    color: #595959;
+    width: 100vw;
+  }
+
+  .footer2 {
+    background-color: hsl(200, 100%, 97%);
+
+    color: black;
+    /* display: none; */
+  }
+  .bottom-text {
+    padding-top: 5px;
+  }
+}
