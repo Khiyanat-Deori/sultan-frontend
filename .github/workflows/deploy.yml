@@ -4,7 +4,7 @@ name: Deploy to Hostinger
 on:
   push:
     branches:
-      - main  # or the branch you want to deploy from
+      - master  # or the branch you want to deploy from
 
 jobs:
   build:
@@ -37,3 +37,4 @@ jobs:
           ftp-username: ${{ secrets.FTP_USERNAME }}
           ftp-password: ${{ secrets.FTP_PASSWORD }}
           local-dir: build
+          server-dir: public_html
