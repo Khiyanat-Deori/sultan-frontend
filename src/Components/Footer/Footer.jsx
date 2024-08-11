@@ -11,7 +11,7 @@ const Footer = () => {
       <div className="footer">
         <div className="footer-top">
           <div className="footer-left">
-            {/* <img src={SHlogo} alt="" className="quicklink-logo" /> */}
+            <img src={SHlogo} alt="" className="quicklink-logo" />
             <div className="quicklink-logo"></div>
 
             <h4 className="quick-links">Quick Links</h4>
@@ -49,7 +49,7 @@ const Footer = () => {
           <div className="line"></div>
           <h3 className="bottom-text">
             © Copyright Sultan Hospital - All Rights Reserved | Developed by
-            <span className="bytesizedsolutions"> BiteSizedSolutions</span>
+            <span className="bytesizedsolutions"> ByteSizedSolutions</span>
           </h3>
         </div>
       </div>
