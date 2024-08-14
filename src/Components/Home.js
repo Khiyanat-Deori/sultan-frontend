@@ -1,6 +1,7 @@
 import "./home.css";
 import Navbar from "./Navbar/Navbar";
-import Heading from "./Heading/Heading";
+import HeroSection from "./HeroSection/HeroSection";
+import Aboutus from "./AboutUS/aboutUS";
 import Counter from "./Counter/Counter";
 import ServiceCard from "./3DServiceCard/ServiceCard";
 import Departments from "./Departments/Departments";
@@ -12,7 +13,8 @@ const Home = () => {
   return (
     <>
       <Navbar />
-      <Heading />
+      <HeroSection />
+      <Aboutus />
       <Counter />
       <ServiceCard />
       <Departments />

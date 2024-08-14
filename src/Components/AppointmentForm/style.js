@@ -1,6 +1,6 @@
-import styled from 'styled-components'
-import DatePicker from 'react-datepicker' // Import the date picker library
-import 'react-datepicker/dist/react-datepicker.css'
+import styled from "styled-components";
+import DatePicker from "react-datepicker"; // Import the date picker library
+import "react-datepicker/dist/react-datepicker.css";
 
 export const AppointmentFormStyled = styled.form`
   border-radius: 20px;
@@ -8,16 +8,16 @@ export const AppointmentFormStyled = styled.form`
     0 4px 4px rgba(0, 0, 0, 0.25),
     0 4px 4px rgba(0, 0, 0, 0.25),
     2px 4px 8px #fff;
-  border: 1px solid #ce4141;
+  border: 2px solid #686d76;
   background-color: #fff;
   display: flex;
-  max-width: 400px; /* Increase the width */
+  max-width: 500px; /* Increase the width */
   flex-direction: column;
   font-size: 16px; /* Increase the font size */
-  color: #000;
+  color: #0000;
   font-weight: 400;
   padding: 30px 60px; /* Increase the padding */
-`
+`;
 
 export const InputGroupStyled = styled.div`
   display: flex;
@@ -27,7 +27,7 @@ export const InputGroupStyled = styled.div`
   &:first-child {
     margin-top: 0;
   }
-`
+`;
 
 export const IconStyled = styled.img`
   aspect-ratio: 0.94;
@@ -35,7 +35,8 @@ export const IconStyled = styled.img`
   object-position: center;
   width: 24px; /* Increase the width */
   margin: 1px 0 18px 0;
-`
+  color: #686d76;
+`;
 
 export const InputLabelStyled = styled.input`
   font-family:
@@ -54,29 +55,31 @@ export const InputLabelStyled = styled.input`
   &:focus {
     border-bottom-color: #ce4141; /* Ensure the bottom border color remains on focus */
   }
-`
+`;
 
 export const SubmitButtonStyled = styled.button`
-  text-shadow: 0 3px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow:
     0 4px 4px rgba(0, 0, 0, 0.25),
     0 4px 4px rgba(0, 0, 0, 0.25);
-  background-color: #ce4141;
+  background-color: #ffffff;
   align-self: center;
   margin-top: 30px; /* Increase the margin */
-  color: #fff;
+  color: #0d567e;
   justify-content: center;
   padding: 12px 18px; /* Increase the padding */
-  font:
-    600 16px Open Sans,
-    sans-serif; /* Increase the font size */
-  border: none;
+  border: 2px solid #686d76;
+  font-weight: 700;
   cursor: pointer;
+  transition-duration: 0.4s;
   &:hover {
     background-color: #399918;
+    color: #ffffff;
   }
-`
+  font-family:
+    Open Sans,
+    sans-serif;
+`;
 
 export const SelectStyled = styled.select`
   font-family:
@@ -95,12 +98,12 @@ export const SelectStyled = styled.select`
   &:focus {
     border-bottom-color: #ce4141; /* Change bottom border color on focus */
   }
-`
+`;
 
 export const OptionStyled = styled.option`
   color: #000;
   padding: 8px;
-`
+`;
 
 export const CustomDatePicker = styled(DatePicker)`
   font-family:
@@ -119,7 +122,7 @@ export const CustomDatePicker = styled(DatePicker)`
   &:focus {
     border-bottom-color: #ce4141;
   }
-`
+`;
 
 export const ErrorMessageStyled = styled.div`
   color: red;
@@ -127,4 +130,4 @@ export const ErrorMessageStyled = styled.div`
   margin-left: 60px;
   margin-top: 5px;
   margin-bottom: 10px; // Add some space below the error message
-`
+`;

@@ -3,8 +3,8 @@ import "./Bottom-container.css";
 const BottomContainer = () => {
   return (
     <>
-      <div className="scroll-container">
-        <h4>Scroll right to view</h4>
+      <div className="scroll-container ">
+        <h4>Scroll right to view photos</h4>
         <img
           src="https://firebasestorage.googleapis.com/v0/b/sultanhospital-e244e.appspot.com/o/hospitalentry.jpeg?alt=media&token=9d9afae3-0d40-46fc-ad0b-5bed42e09360"
           alt=""

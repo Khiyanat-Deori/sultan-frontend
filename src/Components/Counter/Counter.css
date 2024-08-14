@@ -13,8 +13,16 @@
   flex: 1; /* Allow counters to grow/shrink evenly */
   min-width: 200px; /* Minimum width for each counter */
   padding: 20px;
-  border: 1px solid #ddd; /* Add a subtle border */
+  border: 2px solid #6d6d6d; /* Add a subtle border */
   border-radius: 8px; /* Round the corners slightly */
+  color: aliceblue;
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    114deg,
+    rgba(255, 255, 255, 1) 24%,
+    rgba(13, 86, 126, 1) 24%,
+    rgba(0, 180, 217, 1) 100%
+  );
 }
 .count {
   font-size: 2.5rem; /* Make the count number larger */

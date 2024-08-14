@@ -1,8 +1,9 @@
 div.scroll-container {
-  background-color: #dddddd;
+  background-color: #ffffff;
   overflow: auto;
   white-space: nowrap;
   padding: 10px;
+  border: 2px solid #f2ebe9;
 }
 
 div.scroll-container img {

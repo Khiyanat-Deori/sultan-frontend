@@ -14,7 +14,6 @@ import {
   ErrorMessageStyled,
 } from "./style";
 import inputData from "./inputData";
-import { BASE_URL } from "../../BaseUrl";
 const InputGroup = ({
   icon,
   label,
@@ -147,7 +146,10 @@ const AppForm = () => {
 
   const mutation = useMutation(
     (newAppointment) =>
-      axios.post(`${BASE_URL}/api/form/create`, newAppointment),
+      axios.post(
+        "https://sultan-hospital-backend-api.onrender.com/api/form/create",
+        newAppointment
+      ),
     {
       onSuccess: () => {
         toast.success("Appointment created successfully!", {
