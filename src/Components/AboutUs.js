@@ -9,7 +9,7 @@ const AboutUs = () => {
     <Navbar/>
     <div className="about-us-container">
       <div className="about-us-image">
-        <img src="https://i.postimg.cc/cJKk0pBk/Whats-App-Image-2024-07-26-at-11-11-53.jpg" alt="Sultan Hospital" />
+        <img src="https://firebasestorage.googleapis.com/v0/b/sultanhospital-e244e.appspot.com/o/SHRCphoto.jpeg?alt=media&token=262324c5-e2d4-485a-8147-aab1dbc5deb6" alt="Sultan Hospital" />
       </div>
       <div className="about-us-description">
         <h2>An Overview</h2>
@@ -28,8 +28,8 @@ const AboutUs = () => {
       <div className="about-us-awards">
         <h2>Awards and Achievements</h2>
         <div className="awards-images">
-          <img src="https://i.postimg.cc/C1T3tMps/award-1.jpg" alt="Award 1" />
-          <img src="https://i.postimg.cc/DyMYHfq4/Whats-App-Image-2023-05-26-at-10-19-01.jpg" alt="Award 2" />
+          <img src="https://firebasestorage.googleapis.com/v0/b/sultanhospital-e244e.appspot.com/o/award-1.jpeg?alt=media&token=d0e56dc4-4bb8-49fc-8a43-666c09247a85" alt="Award 1" />
+          <img src="https://firebasestorage.googleapis.com/v0/b/sultanhospital-e244e.appspot.com/o/award-2.jpeg?alt=media&token=0469f4ac-8d38-4692-ac3f-bbc902a18d00" alt="Award 2" />
         </div>
       </div>
     </div>
