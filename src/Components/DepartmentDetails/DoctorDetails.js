@@ -2,9 +2,13 @@ import { useParams } from "react-router-dom";
 import "./DoctorDetails.css";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
+import { useEffect } from "react";
 
 const DoctorDetails = () => {
   const { department } = useParams();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [department]);
 
   const doctors = {
     NEUROLOGY: [
