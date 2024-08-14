@@ -6,17 +6,15 @@ const Departments = () => {
 
   const departments = [
     "NEUROLOGY",
-    "CARDIOLOGY",
-    "UROLOGY",
-    "ORTHOPEDICS",
-    "GYNECOLOGY",
-    "MEDICINE",
-    "PATHOLOGY",
-    "PEDIATRICS",
     "ENDOCRINOLOGY",
-    "ANESTHESIOLOGY",
-    "SURGERY",
-    "PHYSIOTHERAPY",
+    "GASTROENTROLOGY",
+    "EMERGENCY & CRITICAL CARE",
+    "MEDICINE",
+    "OBSTETRICS & GYNECOLOGY",
+    "GENERAL SURGERY",
+    "ORTHOPAEDICS",
+    "PATHOLOGY",
+    "DENTAL SURGERY",
   ];
 
   const handleDepartmentClick = (department) => {

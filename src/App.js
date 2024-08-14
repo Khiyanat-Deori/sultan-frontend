@@ -9,6 +9,7 @@ import AboutUs from "./Components/AboutUs";
 import Services from "./Components/Services";
 import Contact from "./Components/ContactUs";
 import "./app.css";
+import DoctorDetails from "./Components/DepartmentDetails/DoctorDetails";
 
 const App = () => {
   return (
@@ -22,6 +23,7 @@ const App = () => {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/services" element={<Services />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/doctors/:department" element={<DoctorDetails />} />
         <Route path="*" element={<NoMatch />} />
       </Routes>
     </>
