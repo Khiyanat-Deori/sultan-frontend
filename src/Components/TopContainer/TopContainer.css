@@ -2,40 +2,23 @@
   display: flex;
   width: 100%;
   height: 500px;
-  justify-content: space-around;
+  justify-content: space-evenly;
   gap: 1rem;
   flex-wrap: wrap;
-  /* align-content: space-evenly; */
   align-items: center;
+  cursor: pointer;
 }
-
+.section {
+  padding-block: 60px;
+}
 .child {
+  height: 300px;
   border: 2px solid #0e567e;
-  width: 35%;
-  height: 160px;
-  background-color: rgb(240, 240, 10);
-  border-radius: 15px;
+  width: 400px;
+  background-color: #7fc7d9;
+  border-radius: 5px;
   align-content: center;
   text-align: center;
-}
-.child-1 {
-  background-color: #0e567e;
-}
-.child-2 {
-  background-color: #fbebec;
-  font-size: 15px;
-}
-.child-3 {
-  background-color: #e5eef2;
-  align-items: center;
-  justify-content: center;
-  font-weight: 600;
-  height: 200px;
-}
-.child-4 {
-  background-color: #ce4241;
-  height: 200px;
-  border-radius: 8px;
 }
 
 .inner-child {
@@ -45,37 +28,51 @@
   height: 60%;
   width: 80%;
   justify-content: space-between;
-  gap: 2px;
+  gap: 10px;
   margin-left: 10%;
 }
 
-.inner-child-1 {
-  background-color: #fbebec;
-  border-radius: 17px;
-}
-.inner-child-2 {
-  background-color: #fbebec;
-  border-radius: 17px;
-}
-.inner-child-3 {
-  background-color: #fbebec;
-  border-radius: 17px;
-}
+.inner-child-1,
+.inner-child-2,
+.inner-child-3,
 .inner-child-4 {
-  background-color: #fbebec;
+  background-color: #365486;
   border-radius: 17px;
+  color: #f7f7f7;
 }
 
 .map {
   border-radius: 10px;
 }
 
-@media only screen and (max-width: 600px) {
+/* Breakpoints for responsive design */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 576px) {
   .parent {
-    /* display: flex; */
-    height: 700px;
+    flex-direction: column;
+    height: auto;
   }
   .child {
     width: 80%;
+    margin-bottom: 1rem;
+  }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (max-width: 768px) {
+  .parent {
+    flex-direction: column;
+    height: auto;
+  }
+  .child {
+    width: 70%;
+    margin-bottom: 1rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1200px) {
+  .parent {
+    justify-content: space-evenly;
   }
 }

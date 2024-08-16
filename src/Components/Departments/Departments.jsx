@@ -22,9 +22,9 @@ const Departments = () => {
   };
   return (
     <>
-      <div className="why-choose-us">
+      <div className="why-choose-us section">
         <div className="why-choose-us-left">
-          <h3>Departments</h3>
+          <h3>Our Departments</h3>
 
           <div className="why-choose-box-container">
             {departments.map((department, index) => (

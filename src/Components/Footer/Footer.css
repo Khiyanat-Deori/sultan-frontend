@@ -65,6 +65,10 @@
 .bytesizedsolutions {
   font-weight: bold;
 }
+.link {
+  color: #dcf2f1;
+  text-decoration: none;
+}
 
 /* Media Queries */
 
@@ -109,17 +113,6 @@
   .footer-phone,
   .footer-email {
     font-size: 14px;
-  }
-}
-@media (min-width: 363px) {
-  .container {
-    max-width: 340px;
-    width: 100%;
-    margin-inline: auto;
-  }
-  .hero {
-    padding-block-start: calc(20px);
-    text-align: left;
   }
 }
 

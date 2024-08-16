@@ -1,43 +1,68 @@
-.section {
-  padding-block: 90px;
+:root {
+  --section-padding: 90px;
+  --hero-padding: 70px;
+  --container-padding: 16px;
+  --font-size-large: 1.3rem;
+  --font-size-small: 1rem;
+  --btn-padding: 16px 32px;
+  --btn-radius: 5px;
+  --max-width-container: 1320px;
+  --color-primary: #365486;
+  --color-secondary: #04aa6d;
+  --color-text: #616161;
+  --color-title: #0d567e;
 }
+
+.section {
+  padding-block: var(--section-padding);
+}
+
 .has-bg-image {
   background-image: url("https://firebasestorage.googleapis.com/v0/b/sultan-hospital-e8f6b.appspot.com/o/backgroung-pattern-1.png?alt=media&token=5c9b5aa4-aa24-495c-92fe-ba6d51e40ccb");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
+
 .hero {
-  padding-block-start: calc(90px + 70px);
   text-align: center;
 }
+
 .container {
-  padding-inline: 16px;
+  padding-inline: var(--container-padding);
+  width: 100%;
+  margin-inline: auto;
+  max-width: var(--max-width-container);
 }
+
 .hero .container {
   display: grid;
   gap: 70px;
+  grid-template-columns: 1fr;
 }
+
 .hero-title {
-  color: #0d567e;
+  color: var(--color-title);
 }
+
 .hero-text {
-  font-size: 1.3rem;
-  color: #616161;
+  font-size: var(--font-size-large);
+  color: var(--color-text);
   margin-block: 24px 36px;
 }
+
 .call_us {
   border: none;
-  background-color: #365486;
-  padding: 16px 32px;
+  background-color: var(--color-primary);
+  padding: var(--btn-padding);
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: var(--font-size-small);
   margin: 4px 2px;
   transition-duration: 0.4s;
   cursor: pointer;
-  border-radius: 5px;
+  border-radius: var(--btn-radius);
 }
 
 .call_us a {
@@ -46,48 +71,58 @@
 }
 
 .call_us:hover {
-  background-color: #04aa6d;
+  background-color: var(--color-secondary);
   color: white;
 }
 
 .hero .form-container {
   position: relative;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
   gap: 8px;
 }
 
-@media (min-width: 363px) {
-  .container {
-    max-width: 340px;
-    width: 100%;
-    margin-inline: auto;
-  }
+/* Media Queries */
+
+@media (min-width: 481px) and (max-width: 575px) {
   .hero {
-    padding-block-start: calc(20px);
     text-align: left;
+  }
+
+  .hero-text {
+    font-size: 1.2rem;
+  }
+
+  .container {
+    max-width: 450px;
+    margin-inline: auto;
+    padding-inline: 14px;
+    justify-content: center;
+  }
+
+  .call_us {
+    padding: 14px 28px;
+    font-size: 15px;
+  }
+  .container .form-container {
+    justify-content: center;
   }
 }
 
-@media (min-width: 575px) {
-  .container {
-    max-width: 540px;
-    width: 100%;
-    margin-inline: auto;
-  }
-  .hero {
-    padding-block-start: calc(50px);
-    text-align: left;
-  }
-}
 @media (min-width: 768px) {
   .container {
     max-width: 720px;
   }
   .hero-text {
-    font-size: 1.3rem;
+    font-size: calc(var(--font-size-large) + 0.2rem);
+  }
+  .hero .form-container {
+    flex-direction: row;
+    align-items: center;
   }
 }
+
 @media (min-width: 992px) {
   .container {
     max-width: 960px;
@@ -103,11 +138,13 @@
   .hero-content {
     max-width: unset;
     margin-inline: 0;
+    justify-content: center;
   }
   .btn-wrapper {
     justify-content: flex-start;
   }
 }
+
 @media (min-width: 1200px) {
   .container {
     max-width: 1140px;
@@ -116,6 +153,7 @@
     padding-inline-end: 100px;
   }
 }
+
 @media (min-width: 1400px) {
   .container {
     max-width: 1320px;
