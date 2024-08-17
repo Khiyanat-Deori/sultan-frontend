@@ -1,118 +1,31 @@
-// import axios from 'axios'
-// import useAuth from '../../hooks/useAuth.js'
-// import { useState } from 'react'
-// import { useMutation } from 'react-query'
-// import { useNavigate } from 'react-router-dom'
-// import { Button, Input, Title, FormWrapper, Container } from './Login-styled.js'
+import axios from "axios";
+import useAuth from "../../hooks/useAuth.js";
+import { useState } from "react";
+import { useMutation } from "react-query";
+import { useNavigate } from "react-router-dom";
+// import "./loginPage.css";
 
-// const LOGIN_URL = 'http://localhost:5000/api/admin/login'
-
-// const login = async ({ email, password }) => {
-//   const response = await axios.post(
-//     LOGIN_URL,
-//     JSON.stringify({ email, password }),
-//     {
-//       headers: { 'Content-Type': 'application/json' },
-//       withCredentials: true,
-//     },
-//   )
-//   return response.data
-// }
-
-// const LoginPage = () => {
-//   const { setAuth } = useAuth()
-//   const [email, setEmail] = useState('')
-//   const [password, setPassword] = useState('')
-//   const [errorMsg, setError] = useState('')
-//   const navigate = useNavigate()
-
-//   const { mutate, isLoading, error } = useMutation(login, {
-//     onSuccess: (data) => {
-//       const accessToken = data?.accessToken;
-//       setAuth({ accessToken });
-//       setEmail("");
-//       setPassword("");
-//       navigate("/adminDashboard");
-//     },
-//     onError: (error) => {
-//       if (!error.response) {
-//         setError('No Server Response')
-//       } else if (error.response?.status === 400) {
-//         setError('Missing Email or Password')
-//       } else if (error.response?.status === 401) {
-//         setError('Unauthorized')
-//       } else {
-//         setError('Login Failed')
-//       }
-//     },
-//   })
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault()
-//     mutate({ email, password })
-//   }
-
-//   return (
-//     <Container>
-//       <FormWrapper>
-//         <Title>Admin Login</Title>
-//         <form onSubmit={handleSubmit}>
-//           <Input
-//             type="email"
-//             placeholder="Email"
-//             value={email}
-//             autoComplete="email"
-//             onChange={(e) => setEmail(e.target.value)}
-//             required
-//           />
-//           <Input
-//             type="password"
-//             placeholder="Password"
-//             value={password}
-//             onChange={(e) => setPassword(e.target.value)}
-//             required
-//           />
-//           <Button type="submit" disabled={isLoading}>
-//             Login
-//           </Button>
-//         </form>
-//         {error && <p>{errorMsg}</p>}
-//         {isLoading && <p>Loading</p>}
-//       </FormWrapper>
-//     </Container>
-//   )
-// }
-
-// export default LoginPage
-
-import axios from 'axios'
-import useAuth from '../../hooks/useAuth.js'
-import { useState } from 'react'
-import { useMutation } from 'react-query'
-import { useNavigate } from 'react-router-dom'
-import { Button, Input, Title, FormWrapper, Container, BackButton } from './Login-styled.js'
-import { BASE_URL } from '../../BaseUrl.js'
-
-const LOGIN_URL = `${BASE_URL}/api/admin/login`
+const LOGIN_URL =
+  "https://sultan-hospital-backend-api.onrender.com/api/admin/login";
 
 const login = async ({ email, password }) => {
   const response = await axios.post(
     LOGIN_URL,
     JSON.stringify({ email, password }),
     {
-      headers: { 'Content-Type': 'application/json' },
+      headers: { "Content-Type": "application/json" },
       withCredentials: true,
-    },
-  )
-  return response.data
-}
+    }
+  );
+  return response.data;
+};
 
 const LoginPage = () => {
-  const { setAuth } = useAuth()
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-  const [errorMsg, setError] = useState('')
-  const navigate = useNavigate()
+  const { setAuth } = useAuth();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMsg, setError] = useState("");
+  const navigate = useNavigate();
 
   const { mutate, isLoading, error } = useMutation(login, {
     onSuccess: (data) => {
@@ -124,53 +37,61 @@ const LoginPage = () => {
     },
     onError: (error) => {
       if (!error.response) {
-        setError('No Server Response')
+        setError("No Server Response");
       } else if (error.response?.status === 400) {
-        setError('Missing Email or Password')
+        setError("Missing Email or Password");
       } else if (error.response?.status === 401) {
-        setError('Unauthorized')
+        setError("Unauthorized");
       } else {
-        setError('Login Failed')
+        setError("Login Failed");
       }
     },
-  })
+  });
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    mutate({ email, password })
-  }
+    e.preventDefault();
+    mutate({ email, password });
+  };
 
   return (
-    <Container>
-      <BackButton onClick={() => navigate('/')}>Back to Home</BackButton>
-      <FormWrapper>
-        <Title>Admin Login</Title>
-        <form onSubmit={handleSubmit}>
-          <Input
-            type="email"
-            placeholder="Email"
-            value={email}
-            autoComplete="email"
-            onChange={(e) => setEmail(e.target.value)}
-            required
-          />
-          <Input
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-          <Button type="submit" disabled={isLoading}>
-            Login
-          </Button>
-        </form>
-        {error && <p>{errorMsg}</p>}
-        {isLoading && <p>Loading</p>}
-      </FormWrapper>
-    </Container>
-  )
-}
-
-export default LoginPage
-
+    <>
+      <div className="login_container">
+        <button className="login_back_btn" onClick={() => navigate("/")}>
+          Back to Home
+        </button>
+        <div className="login-form">
+          <h2 className="login-form_title">Admin Login</h2>
+          <form onSubmit={handleSubmit}>
+            <input
+              className="login-form_input"
+              type="email"
+              placeholder="Email"
+              value={email}
+              autoComplete="email"
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+            <input
+              className="login-form_input"
+              type="password"
+              placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+            />
+            <button
+              className="login-submit-btn"
+              type="submit"
+              disabled={isLoading}
+            >
+              Submit
+            </button>
+          </form>
+          {error && <p>{errorMsg}</p>}
+          {isLoading && <p>Loading</p>}
+        </div>
+      </div>
+    </>
+  );
+};
+export default LoginPage;

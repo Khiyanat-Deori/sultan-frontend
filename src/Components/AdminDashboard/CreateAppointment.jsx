@@ -1,129 +1,11 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import axios from "axios";
 import { useMutation } from "react-query";
 import toast, { Toaster } from "react-hot-toast";
-import {
-  AppointmentFormStyled,
-  InputGroupStyled,
-  IconStyled,
-  InputLabelStyled,
-  SubmitButtonStyled,
-  SelectStyled,
-  OptionStyled,
-  CustomDatePicker,
-  ErrorMessageStyled,
-  BackButtonStyled,
-} from "./style";
+
 import { useNavigate } from "react-router-dom";
 import inputData from "./inputData.js";
-import { BASE_URL } from "../../BaseUrl.js";
-
-const InputGroup = ({
-  icon,
-  label,
-  type,
-  id,
-  options,
-  isDate,
-  value,
-  onChange,
-  reset,
-}) => {
-  const [isPhoneValid, setIsPhoneValid] = useState(true);
-  const [isTouched, setIsTouched] = useState(false);
-
-  useEffect(() => {
-    if (reset) {
-      setIsTouched(false);
-      setIsPhoneValid(true);
-    }
-  }, [reset]);
-
-  useEffect(() => {
-    if (type === "tel" && isTouched) {
-      setIsPhoneValid(value.length === 10 && /^[9876]/.test(value));
-    }
-  }, [value, type, isTouched]);
-
-  const handleDateChange = (date) => {
-    onChange(id, date);
-  };
-
-  const handlePhoneChange = (event) => {
-    let newValue = event.target.value.replace(/\D/g, "");
-    if (newValue.length > 10) {
-      newValue = newValue.slice(0, 10);
-    }
-    setIsPhoneValid(newValue.length === 10 && /^[9876]/.test(newValue));
-    onChange(id, newValue);
-    setIsTouched(true);
-  };
-
-  const handleInputChange = (event) => {
-    onChange(id, event.target.value);
-    if (type === "tel") setIsTouched(true);
-  };
-
-  return (
-    <div>
-      <InputGroupStyled>
-        <IconStyled src={icon} alt="" />
-        {type === "select" ? (
-          <SelectStyled
-            id={id}
-            aria-label={label}
-            required
-            onChange={handleInputChange}
-            value={value}
-          >
-            <option value="" disabled>
-              {label}
-            </option>
-            {options.map((option, index) => (
-              <OptionStyled key={index} value={option.value}>
-                {option.label}
-              </OptionStyled>
-            ))}
-          </SelectStyled>
-        ) : isDate ? (
-          <CustomDatePicker
-            selected={value}
-            onChange={handleDateChange}
-            dateFormat="dd-MM-yyyy"
-            minDate={new Date(new Date().getTime() + 24 * 60 * 60 * 1000)}
-            required
-          />
-        ) : type === "tel" ? (
-          <InputLabelStyled
-            type={type}
-            id={id}
-            placeholder={label}
-            aria-label={label}
-            value={value}
-            onChange={handlePhoneChange}
-            pattern="\d*"
-            required
-          />
-        ) : (
-          <InputLabelStyled
-            type={type}
-            id={id}
-            placeholder={label}
-            aria-label={label}
-            value={value}
-            onChange={handleInputChange}
-            required
-          />
-        )}
-      </InputGroupStyled>
-      {type === "tel" && !isPhoneValid && isTouched && (
-        <ErrorMessageStyled>
-          Please enter a 10 digit number starting with 9, 8, 7, or 6
-        </ErrorMessageStyled>
-      )}
-    </div>
-  );
-};
+import InputGroup from "./InputGroup.jsx";
 
 const CreateAppointment = () => {
   const navigate = useNavigate();
@@ -146,7 +28,10 @@ const CreateAppointment = () => {
 
   const mutation = useMutation(
     (newAppointment) =>
-      axios.post(`${BASE_URL}/api/form/create`, newAppointment),
+      axios.post(
+        "https://sultan-hospital-backend-api.onrender.com/api/form/create",
+        newAppointment
+      ),
     {
       onSuccess: () => {
         toast.success("Appointment created successfully!", {
@@ -204,10 +89,13 @@ const CreateAppointment = () => {
   return (
     <>
       <Toaster />
-      <BackButtonStyled onClick={() => navigate("/adminDashboard")}>
+      <button
+        className="create-apt__back-btn"
+        onClick={() => navigate("/adminDashboard")}
+      >
         Back to Dashboard
-      </BackButtonStyled>
-      <AppointmentFormStyled onSubmit={handleSubmit}>
+      </button>
+      <div className="create-apt__form" onSubmit={handleSubmit}>
         {inputData.map((input, index) => (
           <InputGroup
             key={index}
@@ -217,10 +105,10 @@ const CreateAppointment = () => {
             reset={reset}
           />
         ))}
-        <SubmitButtonStyled type="submit">
+        <button className="create-apt__submit-btn" type="submit">
           Create an Appointment
-        </SubmitButtonStyled>
-      </AppointmentFormStyled>
+        </button>
+      </div>
     </>
   );
 };
