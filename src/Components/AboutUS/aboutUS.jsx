@@ -1,6 +1,7 @@
 import React from "react";
 import "./ABOUTSH.css";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 const aboutUS = () => {
   const handleClick = () => {
     window.location.href =
@@ -13,7 +14,13 @@ const aboutUS = () => {
           <div className="about-heading">About Us</div>
           <div className="inner-main-about">
             <div className="about-inner-content-left">
-              <div className="button" onClick={handleClick}>
+              <motion.div
+                className="button"
+                onClick={handleClick}
+                initial={{ rotate: "0deg" }}
+                animate={{ rotate: "720deg" }}
+                transition={{ duration: 20 }}
+              >
                 <svg
                   viewBox="0 0 448 512"
                   xmlns="http://www.w3.org/2000/svg"
@@ -25,7 +32,7 @@ const aboutUS = () => {
                     fill="currentColor"
                   ></path>
                 </svg>
-              </div>
+              </motion.div>
             </div>
 
             <div className="about-right-content">
