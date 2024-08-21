@@ -19,8 +19,14 @@ const Navbar = () => {
   return (
     <Header>
       <Nav>
-        <NavData>
+        {/* <NavData>
           <NavLogo to="/">Sultan Hospital</NavLogo>
+        </NavData> */}
+        <NavData>
+          <NavLogo to="/">
+            <img src="https://firebasestorage.googleapis.com/v0/b/sultanhospital-e244e.appspot.com/o/2k2uZJnfpNf8bqSij2bGGno1zCA.svg?alt=media&token=1623d17e-0375-47e7-bdc3-19d5f6ef99e6" alt="Sultan Hospital Logo" />
+            SULTAN HOSPITAL
+          </NavLogo>
         </NavData>
         <NavToggle onClick={toggleMenu}>
           {isOpen ? <RiCloseLine size={24} /> : <RiMenuLine size={24} />}

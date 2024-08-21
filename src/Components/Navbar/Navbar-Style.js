@@ -24,17 +24,33 @@ const NavData = styled.div`
   align-items: center;
 `;
 
+// const NavLogo = styled(NavLink)`
+//   display: flex;
+//   align-items: center;
+//   text-decoration: none;
+//   color: #000;
+//   font-size: 1.5rem;
+//   font-family: 'Open Sans', sans-serif;
+//   font-weight: 600;
+//   color: #ce4141;
+//   i {
+//     margin-right: 0.5rem;
+//   }
+// `;
+
 const NavLogo = styled(NavLink)`
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: #000;
   font-size: 1.5rem;
   font-family: 'Open Sans', sans-serif;
-  font-weight: 600;
+  font-weight: 700;
   color: #ce4141;
-  i {
-    margin-right: 0.5rem;
+
+  img {
+    height: 50px; /* Adjust this value as needed */
+    width: auto;
+    margin-right: 0.5rem; /* Space between the logo and text */
   }
 `;
 

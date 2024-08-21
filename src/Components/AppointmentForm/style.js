@@ -62,10 +62,10 @@ export const SubmitButtonStyled = styled.button`
   box-shadow:
     0 4px 4px rgba(0, 0, 0, 0.25),
     0 4px 4px rgba(0, 0, 0, 0.25);
-  background-color: #ffffff;
+  background-color: #365486;
   align-self: center;
   margin-top: 30px; /* Increase the margin */
-  color: #0d567e;
+  color: #ffffff;
   justify-content: center;
   padding: 12px 18px; /* Increase the padding */
   border: 2px solid #686d76;
