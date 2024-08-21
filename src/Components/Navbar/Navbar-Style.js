@@ -30,7 +30,7 @@ const NavLogo = styled(NavLink)`
   text-decoration: none;
   color: #000;
   font-size: 1.5rem;
-  font-family: "Inknut Antiqua", serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 600;
   color: #ce4141;
   i {
@@ -66,7 +66,7 @@ const NavItem = styled(NavLink)`
   margin-left: 2rem;
   text-decoration: none;
   color: #000;
-  font-family: "Inknut Antiqua", serif;
+  font-family: 'Open Sans', sans-serif;
   font-weight: 500;
 
   &.active {
