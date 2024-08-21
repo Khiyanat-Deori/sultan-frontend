@@ -5,7 +5,7 @@ import toast, { Toaster } from "react-hot-toast";
 
 import { useNavigate } from "react-router-dom";
 import inputData from "./inputData.js";
-import InputGroup from "./InputGroup.jsx";
+import InputGroup from "./inputGroup.jsx";
 
 const CreateAppointment = () => {
   const navigate = useNavigate();
