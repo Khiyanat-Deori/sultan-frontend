@@ -1,6 +1,7 @@
 import { useMutation, useQueryClient } from "react-query";
 import useAxiosInterceptor from "../../hooks/useAxiosInterceptor";
 import toast from "react-hot-toast";
+import { BASE_URL } from "../../BaseUrl";
 
 const Delete = ({ appointmentId, refetch }) => {
   const { axiosPrivate } = useAxiosInterceptor();
@@ -9,7 +10,7 @@ const Delete = ({ appointmentId, refetch }) => {
   const mutation = useMutation(
     async () => {
       await axiosPrivate.delete(
-        `https://sultan-hospital-backend-api.onrender.com/api/form/delete/${appointmentId}`
+        `${BASE_URL}/api/form/delete/${appointmentId}`
       );
     },
     {

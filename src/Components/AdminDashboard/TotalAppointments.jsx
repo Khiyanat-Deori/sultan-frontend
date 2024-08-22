@@ -4,13 +4,14 @@ import Update from "./Update";
 import Delete from "./Delete";
 import useAxiosInterceptor from "../../hooks/useAxiosInterceptor";
 import { Toaster } from "react-hot-toast";
+import { BASE_URL } from "../../BaseUrl";
 
 const TotalAppointments = () => {
   const { axiosPrivate } = useAxiosInterceptor();
 
   const fetchAppointments = async () => {
     const { data } = await axiosPrivate.get(
-      "https://sultan-hospital-backend-api.onrender.com/api/form/view"
+      `${BASE_URL}/api/form/view`
     );
     return data;
   };

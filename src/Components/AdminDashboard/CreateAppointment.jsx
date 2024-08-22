@@ -5,7 +5,8 @@ import toast, { Toaster } from "react-hot-toast";
 
 import { useNavigate } from "react-router-dom";
 import inputData from "./inputData.js";
-import InputGroup from "./inputGroup.jsx";
+import InputGroup from "./InputGroup.jsx";
+import { BASE_URL } from "../../BaseUrl.js";
 
 const CreateAppointment = () => {
   const navigate = useNavigate();
@@ -29,7 +30,7 @@ const CreateAppointment = () => {
   const mutation = useMutation(
     (newAppointment) =>
       axios.post(
-        "https://sultan-hospital-backend-api.onrender.com/api/form/create",
+        `${BASE_URL}/api/form/create`,
         newAppointment
       ),
     {
@@ -95,7 +96,7 @@ const CreateAppointment = () => {
       >
         Back to Dashboard
       </button>
-      <div className="create-apt__form" onSubmit={handleSubmit}>
+      <form className="create-apt__form" onSubmit={handleSubmit}>
         {inputData.map((input, index) => (
           <InputGroup
             key={index}
@@ -108,7 +109,7 @@ const CreateAppointment = () => {
         <button className="create-apt__submit-btn" type="submit">
           Create an Appointment
         </button>
-      </div>
+      </form>
     </>
   );
 };

@@ -3,10 +3,10 @@ import useAuth from "../../hooks/useAuth.js";
 import { useState } from "react";
 import { useMutation } from "react-query";
 import { useNavigate } from "react-router-dom";
-// import "./loginPage.css";
+import { BASE_URL } from "../../BaseUrl.js";
 
 const LOGIN_URL =
-  "https://sultan-hospital-backend-api.onrender.com/api/admin/login";
+  `${BASE_URL}/api/admin/login`;
 
 const login = async ({ email, password }) => {
   const response = await axios.post(

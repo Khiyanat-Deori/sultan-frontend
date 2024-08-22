@@ -7,11 +7,12 @@ import ViewTodaysAppointment from "./ViewTodaysAppointment";
 import TomorrowsAppointment from "./TomorrowsAppointment";
 import useAuth from "../../hooks/useAuth";
 import axios from "axios";
+import { BASE_URL } from "../../BaseUrl";
 
 const fetchTodaysAppointments = async (axiosPrivate) => {
   try {
     const response = await axiosPrivate.get(
-      "https://sultan-hospital-backend-api.onrender.com/api/form/todays-appointments"
+      `${BASE_URL}/api/form/todays-appointments`
     );
     return response.data;
   } catch (error) {
@@ -22,7 +23,7 @@ const fetchTodaysAppointments = async (axiosPrivate) => {
 const fetchTotalAppointments = async (axiosPrivate) => {
   try {
     const response = await axiosPrivate.get(
-      "https://sultan-hospital-backend-api.onrender.com/api/form/view"
+      `${BASE_URL}/api/form/view`
     );
     return response.data;
   } catch (error) {
@@ -40,7 +41,7 @@ const AdminDashboard = () => {
     const checkAuth = async () => {
       try {
         await axiosPrivate.get(
-          "https://sultan-hospital-backend-api.onrender.com/api/admin/adminDashboard"
+          `${BASE_URL}/api/admin/adminDashboard`
         );
       } catch (error) {
         if (error.response?.status === 401) {
@@ -73,7 +74,7 @@ const AdminDashboard = () => {
   const handleLogout = async () => {
     try {
       await axios.post(
-        "https://sultan-hospital-backend-api.onrender.com/api/admin/logout",
+        `${BASE_URL}/api/admin/logout`,
         {},
         { withCredentials: true }
       );

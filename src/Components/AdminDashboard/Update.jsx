@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useMutation, useQueryClient } from "react-query";
 import toast from "react-hot-toast";
 import useAxiosInterceptor from "../../hooks/useAxiosInterceptor";
+import { BASE_URL } from "../../BaseUrl";
 
 const timeOptions = [
   { value: "10:00-11:00", label: "10:00 - 11:00" },
@@ -27,7 +28,7 @@ const Update = ({ appointmentId, refetch }) => {
     const fetchAppointment = async () => {
       try {
         const { data } = await axiosPrivate.get(
-          `https://sultan-hospital-backend-api.onrender.com/api/form/view/${appointmentId}`
+          `${BASE_URL}/api/form/view/${appointmentId}`
         );
         setFormValues({
           patientName: data.patientName,

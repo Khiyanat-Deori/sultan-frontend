@@ -3,13 +3,14 @@ import Update from "./Update";
 import Delete from "./Delete";
 import useAxiosInterceptor from "../../hooks/useAxiosInterceptor";
 import { Toaster } from "react-hot-toast";
+import { BASE_URL } from "../../BaseUrl";
 
 const TomorrowsAppointment = () => {
   const { axiosPrivate } = useAxiosInterceptor();
 
   const fetchAppointments = async () => {
     const { data } = await axiosPrivate.get(
-      "https://sultan-hospital-backend-api.onrender.com/api/form/tomorrows-appointments"
+      `${BASE_URL}/api/form/tomorrows-appointments`
     );
     return data;
   };
@@ -40,7 +41,7 @@ const TomorrowsAppointment = () => {
       <div className="tomorrow-apt__container">
         <Toaster />
         <div className="table-container">
-          <h2>TOMORROW'S APPOINTMENTS</h2>
+          <h2>Tomorrow's Appointments</h2>
           <table className="table-look">
             <thead>
               <tr>

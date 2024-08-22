@@ -42,7 +42,12 @@ const InputGroup = ({
   };
 
   const handleInputChange = (event) => {
-    onChange(id, event.target.value);
+    const newValue = event.target.value;
+    if (id === "fullName" && newValue.length > 40) {
+      return;
+    }
+
+    onChange(id, newValue);
     if (type === "tel") setIsTouched(true);
   };
   return (
@@ -100,7 +105,7 @@ const InputGroup = ({
             placeholder={label}
             aria-label={label}
             value={value}
-            onChange={handlePhoneChange}
+            onChange={handleInputChange}
             required
           />
         )}
