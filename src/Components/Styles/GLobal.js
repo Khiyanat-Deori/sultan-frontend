@@ -113,6 +113,21 @@ const GlobalStyles = createGlobalStyle`
   }
 }
 
+// .login-submit-btn {
+//   width: 100%;
+//   padding: 0.875rem;
+//   background: #2c3e50;
+//   color: white;
+//   border: none;
+//   border-radius: 8px;
+//   font-size: 1rem;
+//   cursor: pointer;
+//   transition:
+//     background 0.3s,
+//     transform 0.2s,
+//     box-shadow 0.3s;
+// }
+
 .login-submit-btn {
   width: 100%;
   padding: 0.875rem;
@@ -122,11 +137,13 @@ const GlobalStyles = createGlobalStyle`
   border-radius: 8px;
   font-size: 1rem;
   cursor: pointer;
-  transition:
-    background 0.3s,
-    transform 0.2s,
-    box-shadow 0.3s;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center; /* Center the spinner vertically */
+  position: relative;
 }
+  
 .login-submit-btn:hover {
   background: #1a252f;
   box-shadow: 1px 3px 5px #34495e;
@@ -427,6 +444,13 @@ const GlobalStyles = createGlobalStyle`
   }
 }
 // TommorrowsAppoint
+.loading-spinner-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Full viewport height to center vertically */
+}
+
 .tomorrow-apt__container {
   max-width: 1200px;
   margin: 0 auto -40px;

@@ -4,9 +4,9 @@ import { useState } from "react";
 import { useMutation } from "react-query";
 import { useNavigate } from "react-router-dom";
 import { BASE_URL } from "../../BaseUrl.js";
+import { ThreeDots } from "react-loader-spinner"; 
 
-const LOGIN_URL =
-  `${BASE_URL}/api/admin/login`;
+const LOGIN_URL = `${BASE_URL}/api/admin/login`;
 
 const login = async ({ email, password }) => {
   const response = await axios.post(
@@ -84,14 +84,25 @@ const LoginPage = () => {
               type="submit"
               disabled={isLoading}
             >
-              Submit
+              {isLoading ? (
+                <ThreeDots 
+                height="15" 
+                width="50" 
+                color="#ffffff" 
+                ariaLabel="loading" 
+                style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} // Center the spinner
+              />
+              ) : (
+                "Submit"
+              )}
             </button>
           </form>
           {error && <p>{errorMsg}</p>}
-          {isLoading && <p>Loading</p>}
         </div>
       </div>
     </>
   );
 };
+
 export default LoginPage;
+

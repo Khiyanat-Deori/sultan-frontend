@@ -1,12 +1,12 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { useMutation } from "react-query";
 import toast, { Toaster } from "react-hot-toast";
-
 import { useNavigate } from "react-router-dom";
 import inputData from "./inputData.js";
 import InputGroup from "./inputGroup.jsx";
 import { BASE_URL } from "../../BaseUrl.js";
+import { ThreeDots } from "react-loader-spinner"; // Import the spinner
 
 const CreateAppointment = () => {
   const navigate = useNavigate();
@@ -19,6 +19,7 @@ const CreateAppointment = () => {
 
   const [formValues, setFormValues] = useState(initialFormValues);
   const [reset, setReset] = useState(false);
+  const [isLoading, setIsLoading] = useState(false); // State to manage loading
 
   const handleInputChange = (id, value) => {
     setFormValues((prevValues) => ({
@@ -34,6 +35,9 @@ const CreateAppointment = () => {
         newAppointment
       ),
     {
+      onMutate: () => {
+        setIsLoading(true); // Set loading to true when mutation starts
+      },
       onSuccess: () => {
         toast.success("Appointment created successfully!", {
           duration: 1000,
@@ -59,6 +63,9 @@ const CreateAppointment = () => {
           }
         );
       },
+      onSettled: () => {
+        setIsLoading(false); // Set loading to false after mutation finishes
+      },
     }
   );
 
@@ -78,10 +85,12 @@ const CreateAppointment = () => {
       );
       return;
     }
+    const istDate = new Date(formValues.appointmentDate.getTime() + (5.5 * 60 * 60 * 1000));
+
     const appointmentData = {
       patientName: formValues.fullName,
       phoneNumber: formValues.phoneNumber,
-      date: formValues.appointmentDate.toISOString(),
+      date: istDate,
       timeSchedule: formValues.appointmentTime,
     };
     mutation.mutate(appointmentData);
@@ -106,8 +115,17 @@ const CreateAppointment = () => {
             reset={reset}
           />
         ))}
-        <button className="create-apt__submit-btn" type="submit">
-          Create an Appointment
+        <button className="create-apt__submit-btn" type="submit" disabled={isLoading}>
+          {isLoading ? (
+            <ThreeDots 
+              height="10" 
+              width="80" 
+              color="white" 
+              ariaLabel="loading" 
+            />
+          ) : (
+            "Create an Appointment"
+          )}
         </button>
       </form>
     </>

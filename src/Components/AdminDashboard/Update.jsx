@@ -22,24 +22,33 @@ const Update = ({ appointmentId, refetch }) => {
     timeSchedule: "",
     date: "",
   });
+  const [originalDate, setOriginalDate] = useState(null); // Store the original date and time
   const [showForm, setShowForm] = useState(false);
 
   useEffect(() => {
     const fetchAppointment = async () => {
       try {
-        const { data } = await axiosPrivate.get(
-          `${BASE_URL}/api/form/view/${appointmentId}`
-        );
+        const { data } = await axiosPrivate.get(`${BASE_URL}/api/form/view/${appointmentId}`);
+        const appointmentDate = new Date(data.date);
         setFormValues({
           patientName: data.patientName,
           phoneNumber: data.phoneNumber,
           timeSchedule: data.timeSchedule,
-          date: new Date(data.date).toISOString().split("T")[0],
+          date: appointmentDate.toISOString().split("T")[0], // Only set the date part for the form
         });
+        setOriginalDate(appointmentDate); // Store the original date and time
       } catch (error) {
-        toast.error(
-          `Error fetching appointment: ${error.response?.data?.message || error.message}`
-        );
+        if (error.response?.status === 404) {
+          setFormValues({
+            patientName: "",
+            phoneNumber: "",
+            timeSchedule: "",
+            date: "",
+          });
+          setShowForm(false); // Optionally hide the form if appointment is not found
+        } else {
+          toast.error(`Error fetching appointment: ${error.response?.data?.message || error.message}`);
+        }
       }
     };
 
@@ -49,16 +58,13 @@ const Update = ({ appointmentId, refetch }) => {
   }, [appointmentId, axiosPrivate]);
 
   const updateMutation = useMutation(
-    async () => {
-      await axiosPrivate.put(
-        `https://sultan-hospital-backend-api.onrender.com/api/form/update/${appointmentId}`,
-        formValues
-      );
+    async (updatedFormValues) => {
+      await axiosPrivate.put(`${BASE_URL}/api/form/update/${appointmentId}`, updatedFormValues);
     },
     {
       onSuccess: () => {
         toast.success("Appointment updated successfully", {
-          duration: 2000,
+          duration: 1200,
           style: {
             fontSize: "18px",
             minWidth: "350px",
@@ -66,20 +72,18 @@ const Update = ({ appointmentId, refetch }) => {
         });
         queryClient.invalidateQueries("totalAppointments");
         queryClient.invalidateQueries("todaysAppointments");
+        queryClient.invalidateQueries("tomorrowsAppointments");
         refetch();
         setShowForm(false);
       },
       onError: (error) => {
-        toast.error(
-          `Error: ${error.response?.data?.message || error.message}`,
-          {
-            duration: 2000,
-            style: {
-              fontSize: "18px",
-              minWidth: "350px",
-            },
-          }
-        );
+        toast.error(`Error: ${error.response?.data?.message || error.message}`, {
+          duration: 2000,
+          style: {
+            fontSize: "18px",
+            minWidth: "350px",
+          },
+        });
       },
     }
   );
@@ -91,7 +95,29 @@ const Update = ({ appointmentId, refetch }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    updateMutation.mutate();
+
+    if (originalDate) {
+      // Get the selected date from the form
+      const selectedDate = new Date(formValues.date);
+
+      // Merge the selected date with the original time component
+      const updatedDate = new Date(
+        selectedDate.getFullYear(),
+        selectedDate.getMonth(),
+        selectedDate.getDate(),
+        originalDate.getHours(),
+        originalDate.getMinutes(),
+        originalDate.getSeconds(),
+        originalDate.getMilliseconds()
+      );
+
+      const updatedFormValues = {
+        ...formValues,
+        date: updatedDate, // Set the merged date and time
+      };
+
+      updateMutation.mutate(updatedFormValues);
+    }
   };
 
   return (
@@ -99,8 +125,9 @@ const Update = ({ appointmentId, refetch }) => {
       <button
         className="form-container__edit-btn"
         onClick={() => setShowForm(true)}
+        disabled={updateMutation.isLoading}
       >
-        Edit
+        {updateMutation.isLoading ? "Updating..." : "Edit"}
       </button>
       {showForm && (
         <div>
@@ -112,6 +139,7 @@ const Update = ({ appointmentId, refetch }) => {
               name="patientName"
               value={formValues.patientName}
               onChange={handleChange}
+              required
             />
             <label htmlFor="phoneNumber">Phone Number:</label>
             <input
@@ -121,6 +149,7 @@ const Update = ({ appointmentId, refetch }) => {
               value={formValues.phoneNumber}
               onChange={handleChange}
               maxLength="10"
+              required
             />
             <label htmlFor="timeSchedule">Time Schedule:</label>
             <select
@@ -128,6 +157,7 @@ const Update = ({ appointmentId, refetch }) => {
               name="timeSchedule"
               value={formValues.timeSchedule}
               onChange={handleChange}
+              required
             >
               <option value="">Select time</option>
               {timeOptions.map((option) => (
@@ -143,17 +173,18 @@ const Update = ({ appointmentId, refetch }) => {
               name="date"
               value={formValues.date}
               onChange={handleChange}
+              required
             />
-            <div className="form-container__edit-btn" type="submit">
-              Update
-            </div>
-            <div
+            <button className="form-container__edit-btn" type="submit" disabled={updateMutation.isLoading}>
+              {updateMutation.isLoading ? "Updating..." : "Update"}
+            </button>
+            <button
               className="form-container__edit-btn"
               type="button"
               onClick={() => setShowForm(false)}
             >
               Cancel
-            </div>
+            </button>
           </form>
         </div>
       )}
@@ -162,3 +193,4 @@ const Update = ({ appointmentId, refetch }) => {
 };
 
 export default Update;
+

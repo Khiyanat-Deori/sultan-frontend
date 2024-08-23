@@ -1,3 +1,4 @@
+import React from "react";
 import { useMutation, useQueryClient } from "react-query";
 import useAxiosInterceptor from "../../hooks/useAxiosInterceptor";
 import toast from "react-hot-toast";
@@ -9,9 +10,7 @@ const Delete = ({ appointmentId, refetch }) => {
 
   const mutation = useMutation(
     async () => {
-      await axiosPrivate.delete(
-        `${BASE_URL}/api/form/delete/${appointmentId}`
-      );
+      await axiosPrivate.delete(`${BASE_URL}/api/form/delete/${appointmentId}`);
     },
     {
       onSuccess: () => {
@@ -22,15 +21,17 @@ const Delete = ({ appointmentId, refetch }) => {
             minWidth: "350px",
           },
         });
-        queryClient.invalidateQueries("todaysAppointments");
+        // Invalidate all relevant queries to ensure data consistency
         queryClient.invalidateQueries("totalAppointments");
+        queryClient.invalidateQueries("todaysAppointments");
+        queryClient.invalidateQueries("tomorrowsAppointments");
         refetch();
       },
       onError: (error) => {
         toast.error(
           `Error: ${error.response?.data?.message || error.message}`,
           {
-            duration: 2000,
+            duration: 1200,
             style: {
               fontSize: "18px",
               minWidth: "350px",
@@ -42,21 +43,19 @@ const Delete = ({ appointmentId, refetch }) => {
   );
 
   return (
-    <>
-      <button
-        className="form-container_delete-btn"
-        onClick={() => {
-          if (
-            window.confirm("Are you sure you want to delete this appointment?")
-          ) {
-            mutation.mutate();
-          }
-        }}
-      >
-        Delete
-      </button>
-    </>
+    <button
+      className="form-container_delete-btn"
+      onClick={() => {
+        if (window.confirm("Are you sure you want to delete this appointment?")) {
+          mutation.mutate();
+        }
+      }}
+      disabled={mutation.isLoading}
+    >
+      {mutation.isLoading ? "Deleting..." : "Delete"}
+    </button>
   );
 };
 
 export default Delete;
+
