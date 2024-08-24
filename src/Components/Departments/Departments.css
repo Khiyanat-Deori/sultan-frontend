@@ -1,65 +1,89 @@
-/* wsdededededededededeedededede */
+
 .why-choose-us {
   width: 100%;
-  display: grid;
-  grid-template-columns: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 40px; 
+  background-color: #ffffff;
 }
+
+.why-choose-us-inner {
+  width: 100%;
+  max-width: 1200px;
+  padding: 0 10px; 
+}
+
 .why-choose-us-left {
-  padding: 50px;
-  /* background-color: #365486; */
-  background-color: #f2ebe9;
+  width: 100%;
+  text-align: center;
 }
 
 .why-choose-us-left h3 {
-  font-size: 2.6rem;
+  font-size: 2.8rem;
   color: #365486;
-  font-weight: 600;
-  line-height: 3.2rem;
+  font-weight: 700;
+  line-height: 3.5rem;
+  margin-bottom: 30px;
+  margin-top: -10px;
 }
+
 .why-choose-box-container {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  margin-top: 20px;
-  grid-gap: 10px;
+  grid-template-columns: repeat(5, minmax(180px, 1fr)); 
+  gap: 20px; 
 }
+
 .why-choose-box {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 20px;
-  /* background-color: #7fc7d9; */
+  justify-content: center; 
+  align-items: center; 
+  padding: 20px; 
+  border-radius: 8px;
   background-color: #365486;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  text-align: center; 
 }
+
+.why-choose-box:hover {
+  background-color: #7fc7d9;
+  transform: translateY(-5px);
+}
+
 .why-choose-box i {
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   color: #ffffff;
   background-color: #25503f;
-  margin-right: 10px;
+  margin-right: 15px;
 }
+
 .why-choose-box-text {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+
 .why-choose-box-text strong {
   color: #ffffff;
   font-weight: 600;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 1024px) {
+  .why-choose-box-container {
+    grid-template-columns: 1fr; 
+  }
 }
 
 @media (max-width: 620px) {
   .why-choose-us-left h3 {
-    font-size: 1.8rem;
-    line-height: 2.2rem;
-  }
-  .why-choose-us-left {
-    padding: 30px 20px;
-  }
-  .why-choose-box-container {
-    grid-template-columns: 1fr;
+    font-size: 2rem;
+    line-height: 2.5rem;
   }
 }
