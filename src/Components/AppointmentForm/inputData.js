@@ -1,25 +1,28 @@
+import { MdOutlinePersonOutline, MdOutlineDateRange } from "react-icons/md";
+import { TbPhoneCall } from "react-icons/tb";
+import { IoMdTime } from "react-icons/io";
 const inputData = [
   {
-    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/310ac18a98cfaac54eaca7e3246a79307c7c8b0ff2dd0993434fd1a51c35ed3b?apiKey=be905fcf35c049c9b7bd0705582b940a&",
+    icon: <MdOutlinePersonOutline/>,
     label: "Your Full Name",
     type: "text",
     id: "fullName",
   },
   {
-    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/000a0d85b632aa2390eb0b9fa584bc6ed4d9bd4605b2a5c63913f788fef6b499?apiKey=be905fcf35c049c9b7bd0705582b940a&",
+    icon: <TbPhoneCall />,
     label: "Your Phone Number",
     type: "tel",
     id: "phoneNumber",
   },
   {
-    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/4e835f99efe92624f7d1d5abe31689d75e2d1a6129fb840db15a4fe1eee5220e?apiKey=be905fcf35c049c9b7bd0705582b940a&",
+    icon: <MdOutlineDateRange />,
     label: "Select Date",
     type: "date",
     id: "appointmentDate",
     isDate: true,
   },
   {
-    icon: "https://cdn.builder.io/api/v1/image/assets/TEMP/7fefbe1531046f8a7bb901dc17fd878fd5f3641b1bbc1109ef627456f1336f23?apiKey=be905fcf35c049c9b7bd0705582b940a&",
+    icon: <IoMdTime />,
     label: "Appointment Time",
     type: "select",
     id: "appointmentTime",

@@ -53,7 +53,10 @@ const InputGroup = ({
   return (
     <>
       <div className="create-apt__inputGroup">
-        <img src={icon} alt="" />
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '32px', height: '32px', color: '#686d76', fontSize: '3rem', marginRight: '12px' }}>
+      {icon}
+      </div>
+
         {type === "select" ? (
           <select
             className="inputGroup-select"

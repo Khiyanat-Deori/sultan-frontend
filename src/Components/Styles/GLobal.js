@@ -113,21 +113,6 @@ const GlobalStyles = createGlobalStyle`
   }
 }
 
-// .login-submit-btn {
-//   width: 100%;
-//   padding: 0.875rem;
-//   background: #2c3e50;
-//   color: white;
-//   border: none;
-//   border-radius: 8px;
-//   font-size: 1rem;
-//   cursor: pointer;
-//   transition:
-//     background 0.3s,
-//     transform 0.2s,
-//     box-shadow 0.3s;
-// }
-
 .login-submit-btn {
   width: 100%;
   padding: 0.875rem;
@@ -273,6 +258,7 @@ const GlobalStyles = createGlobalStyle`
   font-weight: 700;
 }
 //CREATE-FORM
+
 .create-apt__back-btn {
   position: absolute;
   top: 20px;
@@ -313,7 +299,7 @@ const GlobalStyles = createGlobalStyle`
   border: 1px solid #ce4141;
   background-color: #fff;
   display: flex;
-  max-width: 400px; /* Increase the width */
+  max-width: 500px; /* Increase the width */
   flex-direction: column;
   font-size: 16px; /* Increase the font size */
   color: #000;

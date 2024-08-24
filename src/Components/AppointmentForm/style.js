@@ -29,13 +29,24 @@ export const InputGroupStyled = styled.div`
   }
 `;
 
-export const IconStyled = styled.img`
-  aspect-ratio: 0.94;
-  object-fit: auto;
-  object-position: center;
-  width: 24px; /* Increase the width */
-  margin: 1px 0 18px 0;
+// export const IconStyled = styled.div`
+//   aspect-ratio: 0.94;
+//   object-fit: auto;
+//   object-position: center;
+//   width: 24px; /* Increase the width */
+//   margin: 1px 0 18px 0;
+//   color: #686d76;
+// `;
+
+export const IconStyled = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;  /* Increase the width */
+  height: 40px; /* Set a height to maintain aspect ratio */
   color: #686d76;
+  font-size: 1.8em; /* Increase the icon size */
+  margin: auto 0 18px 0; /* Adjust margin for alignment */
 `;
 
 export const InputLabelStyled = styled.input`
