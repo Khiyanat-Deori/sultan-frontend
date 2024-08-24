@@ -7,6 +7,8 @@
     align-items: stretch;
     padding: 0 20px; 
     box-sizing: border-box;
+    margin-top: 60px;
+    margin-bottom: 60px;
   }
   
   .child {
