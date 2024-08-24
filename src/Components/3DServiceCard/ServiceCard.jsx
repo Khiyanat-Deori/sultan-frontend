@@ -1,22 +1,60 @@
+// import React from "react";
+// import "./ServiceCard.css";
+
+// const ServiceCard = () => {
+//   return (
+//     <>
+//       <section className="section ">
+//         <div className="heading_service">Our Services</div>
+//         <div className="container">
+//           <main className="main_services">
+//             <div className="parents">
+//               <div className="card">
+//                 <div className="content-box">
+//                   <span className="card-title">Full Body Checkup</span>
+//                   <p className="card-content">
+//                     Get Your Full Body Checkup Facilities
+//                     <br />
+//                   </p>
+//                   {/* <span className="see-more"/> */}
+//                 </div>
+//               </div>
+//             </div>
+//             <div className="parents">
+//               <div className="card">
+//                 <div className="content-box">
+//                   <span className="card-title">Affordable Treatment</span>
+//                   <p className="card-content">Get Quick Report </p>
+//                   {/* <span className="see-more">See More</span> */}
+//                 </div>
+//               </div>
+//             </div>
+//           </main>
+//         </div>
+//       </section>
+//     </>
+//   );
+// };
+
+// export default ServiceCard;
+
 import React from "react";
 import "./ServiceCard.css";
 
 const ServiceCard = () => {
   return (
     <>
-      <section className="section ">
+      <section className="section">
         <div className="heading_service">Our Services</div>
         <div className="container">
           <main className="main_services">
             <div className="parents">
               <div className="card">
                 <div className="content-box">
-                  <span className="card-title">Full Body Checkup</span>
+                  <span className="card-title">Whole Body Checkup</span>
                   <p className="card-content">
-                    Get Your Full Body Checkup Facilities
-                    <br />
+                    Special offers
                   </p>
-                  <span className="see-more">See More</span>
                 </div>
               </div>
             </div>
@@ -24,8 +62,23 @@ const ServiceCard = () => {
               <div className="card">
                 <div className="content-box">
                   <span className="card-title">Affordable Treatment</span>
-                  <p className="card-content">Get Quick Report </p>
-                  <span className="see-more">See More</span>
+                  <p className="card-content">Get Quick Report</p>
+                </div>
+              </div>
+            </div>
+            <div className="parents">
+              <div className="card">
+                <div className="content-box">
+                  <span className="card-title">24/7 Medical Support</span>
+                  <p className="card-content">We are here anytime</p>
+                </div>
+              </div>
+            </div>
+            <div className="parents">
+              <div className="card">
+                <div className="content-box">
+                  <span className="card-title">Quality Professioanls</span>
+                  <p className="card-content">Consult with experts </p>
                 </div>
               </div>
             </div>
@@ -37,3 +90,4 @@ const ServiceCard = () => {
 };
 
 export default ServiceCard;
+

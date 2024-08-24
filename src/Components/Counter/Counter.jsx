@@ -1,60 +1,94 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./Counter.css";
 
-function CountNumber({ target, speed }) {
+function CountNumber({ target }) {
   const [count, setCount] = useState(0);
+  const [isVisible, setIsVisible] = useState(false);
+  const counterRef = useRef(null);
 
   useEffect(() => {
-    let isMounted = true; // Flag to track component mounting state
-
-    const updateCount = () => {
-      const inc = target / speed;
-
-      if (count < target && isMounted) {
-        // Check if component is still mounted
-        setCount(Math.floor(inc + count));
-        setTimeout(updateCount, 15);
-      } else if (isMounted) {
-        // Ensure target is reached
-        setCount(target);
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+        }
+      },
+      {
+        threshold: 1.0, // Trigger when 100% of the element is visible
       }
-    };
+    );
 
-    updateCount(); // Start the animation immediately
+    const currentRef = counterRef.current;
+
+    if (currentRef) {
+      observer.observe(currentRef);
+    }
 
     return () => {
-      isMounted = false; // Cleanup: set flag to false on unmount
+      if (currentRef) {
+        observer.unobserve(currentRef);
+      }
     };
-  }, [target, speed, count]);
+  }, []);
 
-  return <div className="count">{count}</div>;
+  useEffect(() => {
+    if (isVisible) {
+      const duration = 1000; // 1 second
+      const steps = 100; // Number of steps for smoother animation
+      const delay = duration / steps; // Delay between each step
+      const increment = target / steps; // Increment per step
+
+      let currentStep = 0;
+
+      const updateCount = () => {
+        currentStep++;
+        setCount((prevCount) => {
+          const nextCount = prevCount + increment;
+          return currentStep < steps ? nextCount : target;
+        });
+
+        if (currentStep < steps) {
+          setTimeout(updateCount, delay);
+        }
+      };
+
+      updateCount();
+    }
+  }, [isVisible, target]);
+
+  return (
+    <div className="count" ref={counterRef}>
+      {Math.floor(count)}+
+    </div>
+  );
 }
 
 const Counter = () => {
   return (
-    <>
-      <div className="counter-container">
-        <div className="counter">
-          <h4 className="count">
-            <CountNumber target={80} speed={50} />
-          </h4>
-          <p>80+ Hospital Beds</p>
-        </div>
-        <div className="counter">
-          <h4 className="count">
-            <CountNumber target={700} speed={100} />
-          </h4>
-          <p>Free Treatments</p>
-        </div>
-        <div className="counter">
-          <h4 className="count">
-            <CountNumber target={500000} speed={1000} />
-          </h4>
-          <p>Happy Patients</p>
-        </div>
+    <div className="counter-container">
+      <div className="counter">
+        <h4 className="count">
+          <CountNumber target={80} />
+        </h4>
+        <p>80+ Hospital Beds</p>
       </div>
-    </>
+      <div className="counter">
+        <h4 className="count">
+          <CountNumber target={700} />
+        </h4>
+        <p>Free Treatments</p>
+      </div>
+      <div className="counter">
+        <h4 className="count">
+          <CountNumber target={500000} />
+        </h4>
+        <p>Happy Patients</p>
+      </div>
+    </div>
   );
 };
 
 export default Counter;
+
+
+
