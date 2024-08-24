@@ -22,21 +22,22 @@ const Update = ({ appointmentId, refetch }) => {
     timeSchedule: "",
     date: "",
   });
-  const [originalDate, setOriginalDate] = useState(null); // Store the original date and time
+  const [originalDate, setOriginalDate] = useState(null);
   const [showForm, setShowForm] = useState(false);
+  const [fetchId, setFetchId] = useState(null); // State to track if fetch should happen
 
   useEffect(() => {
     const fetchAppointment = async () => {
       try {
-        const { data } = await axiosPrivate.get(`${BASE_URL}/api/form/view/${appointmentId}`);
+        const { data } = await axiosPrivate.get(`${BASE_URL}/api/form/view/${fetchId}`);
         const appointmentDate = new Date(data.date);
         setFormValues({
           patientName: data.patientName,
           phoneNumber: data.phoneNumber,
           timeSchedule: data.timeSchedule,
-          date: appointmentDate.toISOString().split("T")[0], // Only set the date part for the form
+          date: appointmentDate.toISOString().split("T")[0],
         });
-        setOriginalDate(appointmentDate); // Store the original date and time
+        setOriginalDate(appointmentDate);
       } catch (error) {
         if (error.response?.status === 404) {
           setFormValues({
@@ -45,17 +46,17 @@ const Update = ({ appointmentId, refetch }) => {
             timeSchedule: "",
             date: "",
           });
-          setShowForm(false); // Optionally hide the form if appointment is not found
+          setShowForm(false);
         } else {
           toast.error(`Error fetching appointment: ${error.response?.data?.message || error.message}`);
         }
       }
     };
 
-    if (appointmentId) {
+    if (fetchId) {
       fetchAppointment();
     }
-  }, [appointmentId, axiosPrivate]);
+  }, [fetchId, axiosPrivate]);
 
   const updateMutation = useMutation(
     async (updatedFormValues) => {
@@ -97,10 +98,7 @@ const Update = ({ appointmentId, refetch }) => {
     e.preventDefault();
 
     if (originalDate) {
-      // Get the selected date from the form
       const selectedDate = new Date(formValues.date);
-
-      // Merge the selected date with the original time component
       const updatedDate = new Date(
         selectedDate.getFullYear(),
         selectedDate.getMonth(),
@@ -113,18 +111,23 @@ const Update = ({ appointmentId, refetch }) => {
 
       const updatedFormValues = {
         ...formValues,
-        date: updatedDate, // Set the merged date and time
+        date: updatedDate,
       };
 
       updateMutation.mutate(updatedFormValues);
     }
   };
 
+  const handleEditClick = () => {
+    setFetchId(appointmentId); // Set fetchId to trigger the useEffect
+    setShowForm(true);
+  };
+
   return (
     <>
       <button
         className="form-container__edit-btn"
-        onClick={() => setShowForm(true)}
+        onClick={handleEditClick}
         disabled={updateMutation.isLoading}
       >
         {updateMutation.isLoading ? "Updating..." : "Edit"}
@@ -193,4 +196,3 @@ const Update = ({ appointmentId, refetch }) => {
 };
 
 export default Update;
-
