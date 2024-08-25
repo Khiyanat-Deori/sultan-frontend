@@ -5,7 +5,7 @@ const ServiceCard = () => {
   return (
     <>
       <section className="section">
-        <div className="heading_service">Our Services</div>
+        <div className="heading_service">Why Choose Us?</div>
         <div className="container">
           <main className="main_services">
             <div className="parents">

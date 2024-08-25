@@ -20,8 +20,8 @@
 }
 
 .why-choose-us-left h3 {
-  font-size: 2.8rem;
-  color: #365486;
+  font-size: 2.4rem;
+  color: #0D567E;
   font-weight: 700;
   line-height: 3.5rem;
   margin-bottom: 30px;
@@ -40,7 +40,7 @@
   align-items: center; 
   padding: 20px; 
   border-radius: 8px;
-  background-color: #365486;
+  background-color: #0D567E;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease;
   text-align: center; 
@@ -83,7 +83,7 @@
 
 @media (max-width: 620px) {
   .why-choose-us-left h3 {
-    font-size: 2rem;
+    font-size: 2.4rem;
     line-height: 2.5rem;
   }
 }

@@ -16,7 +16,6 @@
     min-width: 280px; 
     max-width: 650px;
     min-height: 220px; 
-    border: 2px solid #0e567e;
     background-color: #7fc7d9;
     border-radius: 10px;
     display: flex;
@@ -43,7 +42,7 @@
   }
   
   .inner-child b {
-    background-color: #365486;
+    background-color: #0D567E;
     border-radius: 10px;
     color: #f7f7f7;
     padding: 8px;

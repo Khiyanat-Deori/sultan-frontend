@@ -17,9 +17,6 @@ const aboutUS = () => {
               <motion.div
                 className="button"
                 onClick={handleClick}
-                initial={{ rotate: "0deg" }}
-                animate={{ rotate: "720deg" }}
-                transition={{ duration: 20 }}
               >
                 <svg
                   viewBox="0 0 448 512"
@@ -37,11 +34,10 @@ const aboutUS = () => {
 
             <div className="about-right-content">
               <h2>
-                We're setting Standards in Research what's more, Clinical Care.
+              We're setting standards in research and clinical care.
               </h2>
               <p>
-                We provide the most full medical services, so every person could
-                have the pportunity o receive qualitative medical help.
+              We provide the most comprehensive medical services so that everyone has the opportunity to receive quality medical care.
               </p>
               <Link to="/about" className="aboutbtn">
                 Read More

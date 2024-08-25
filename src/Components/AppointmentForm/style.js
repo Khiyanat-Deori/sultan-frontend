@@ -29,14 +29,6 @@ export const InputGroupStyled = styled.div`
   }
 `;
 
-// export const IconStyled = styled.div`
-//   aspect-ratio: 0.94;
-//   object-fit: auto;
-//   object-position: center;
-//   width: 24px; /* Increase the width */
-//   margin: 1px 0 18px 0;
-//   color: #686d76;
-// `;
 
 export const IconStyled = styled.div`
   display: flex;
@@ -73,7 +65,7 @@ export const SubmitButtonStyled = styled.button`
   box-shadow:
     0 4px 4px rgba(0, 0, 0, 0.25),
     0 4px 4px rgba(0, 0, 0, 0.25);
-  background-color: #365486;
+  background-color: #0D567E;
   align-self: center;
   margin-top: 30px; /* Increase the margin */
   color: #ffffff;

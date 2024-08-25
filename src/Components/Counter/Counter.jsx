@@ -70,7 +70,7 @@ const Counter = () => {
         <h4 className="count">
           <CountNumber target={80} />
         </h4>
-        <p>80+ Hospital Beds</p>
+        <p>Hospital Beds</p>
       </div>
       <div className="counter">
         <h4 className="count">
