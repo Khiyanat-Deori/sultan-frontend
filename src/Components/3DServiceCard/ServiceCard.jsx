@@ -37,7 +37,7 @@ const ServiceCard = () => {
             <div className="parents">
               <div className="card">
                 <div className="content-box">
-                  <span className="card-title">Quality Professioanls</span>
+                  <span className="card-title">Quality Professionals</span>
                   <p className="card-content">Consult with experts </p>
                 </div>
               </div>
