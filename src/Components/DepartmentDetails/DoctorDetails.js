@@ -25,8 +25,8 @@ const DoctorDetails = () => {
         { name: "Dr. K. AHMED (MBBS (C/C))", image: "https://firebasestorage.googleapis.com/v0/b/sultanhospital-e244e.appspot.com/o/K.Ahmed.jpg?alt=media&token=d9553fed-6783-4378-af5e-44135ef73f95" },
         { name: "Dr. Y. MAJUMDAR (MBBS, MD ANESTHESIOLOGIST)", image: "https://firebasestorage.googleapis.com/v0/b/sultanhospital-e244e.appspot.com/o/Y.Majumdar.jpg?alt=media&token=cbe760c2-ad32-4322-9e99-ba3a67ea13ac" },
     ],
-    MEDICINE: [
-        { name: "Dr. N. SARKAR (MD (AYU), RMO)", image: "https://firebasestorage.googleapis.com/v0/b/sultanhospital-e244e.appspot.com/o/dummy-image.jpg?alt=media&token=c77efa12-fe5a-4ecb-ad26-82b466987f27" },
+    RMO: [
+      { name: "Dr. S.BISWAS (MS(AYU), RMO)", image: "https://firebasestorage.googleapis.com/v0/b/sultanhospital-e244e.appspot.com/o/s.biswas.jpg?alt=media&token=421d33f5-53a3-4fd5-9cd2-9b2183ef2e76" },
         { name: "Dr. MD. F. IQBAL (RMO)", image: "https://firebasestorage.googleapis.com/v0/b/sultanhospital-e244e.appspot.com/o/f.iqbal.jpg?alt=media&token=e424ae34-b188-444f-9213-8c9c3aef0d9b" },
     ],
     "OBSTETRICS & GYNECOLOGY": [

@@ -9,7 +9,7 @@ const Departments = () => {
     "ENDOCRINOLOGY",
     "GASTROENTROLOGY",
     "EMERGENCY & CRITICAL CARE",
-    "MEDICINE",
+    "RMO",
     "OBSTETRICS & GYNECOLOGY",
     "GENERAL SURGERY",
     "ORTHOPAEDICS",
